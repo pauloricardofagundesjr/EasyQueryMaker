@@ -1,0 +1,140 @@
+(function (root, factory) {
+    if (typeof define === "function" && define.amd) {
+        define(factory);
+    } else if (typeof exports === "object") {
+        module.exports = factory();
+    } else {
+        root.Teste1 = factory();
+    }
+})(this, function () {
+    "use strict";
+
+    let buttomMethods = [];
+
+    buttomMethods.Delete = function () {
+        let $buttom = $("<button>", { 
+            class: "btn btn-primary ThemeGrid_MarginGutter",
+             type: "button", 
+             text: "Delete" 
+            });
+         return $buttom
+    }
+
+    class Rule {
+        constructor(Id, Field, Input, Operator, Value) {
+            this.id = Id;
+            this.field = Field;
+            this.input = Input;
+            this.operator = Operator;
+            this.value = Value;
+        }
+                
+    }
+
+    Rule.prototype.buttomDelete = buttomMethods.Delete;
+
+    ruleV = new Rule("1","text","entity",">","1");
+
+    
+
+    var rules = [];
+
+    rules.rulesList = function () {
+        var rulesList = [];
+        this.add = function (Condition) {
+            rulesList.push(Condition);
+        }
+        this.get = function () {
+            return rulesList;
+        }
+    }
+
+    var rule = function (Condition, Id) {
+        var listRules = [];
+        var condition = Condition;
+        var conditionId = Id;
+        this.add = function (Id, Field, Input, Operator, Value) {
+            var obj = {
+                id: Id,
+                field: Field,
+                input: Input,
+                operator: Operator,
+                value: Value
+            };
+
+            obj.prototype.buttomDelete = new methods();
+            listRules.push(obj);
+        }
+        this.get = function () {
+            return listRules;
+        }
+    }
+
+
+
+    /* 
+    var condition = function (Id, Condition) {
+        this.Id = Id;
+        this.condition = Condition;
+    }
+    condition.prototype.rules = new rules(); */
+
+
+    rule1 = new rule("and", "teste");
+    rule1.add("1", "entuty", "text", "+", "1")
+    rule1.add("2", "entuty", "text", "+", "1")
+
+    rules.rulesList()
+    rules.add(rule1);
+
+
+
+
+
+
+
+
+    var data = {
+        "condition": "OR",
+        "rules": [
+            {
+                "condition": "AND",
+                "rules": [
+                    {
+                        "id": "price",
+                        "field": "price",
+                        "type": "double",
+                        "input": "number",
+                        "operator": "±",
+                        "value": 1
+                    },
+                    {
+                        "id": "price",
+                        "field": "price",
+                        "type": "double",
+                        "input": "number",
+                        "operator": "=",
+                        "value": 1
+                    }
+                ]
+            },
+            {
+                "condition": "AND",
+                "rules": [
+                    {
+                        "id": "price",
+                        "field": "price",
+                        "type": "double",
+                        "input": "number",
+                        "operator": "=",
+                        "value": 1
+                    }
+                ]
+            }
+        ],
+        "valid": true
+    };
+
+
+
+});

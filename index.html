@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Sample Project</title>
+
+    <link href="scripts\Builder.css" rel="stylesheet" />
+
+    <script data-main="scripts/config" src="scripts/require.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        var builder;
+        var groupRules_obj;
+        require(['config'], function () {
+            require(['EasyQueryMaker'], function (a) {
+                builder = a;
+                let json = '[{"name":"Teste1","value":"{ENTITY1}","dataType":"string"},{"name":"Teste2","value":"2","dataType":"number"}]';
+                builder.fields.setJsonList(json);   
+/*                     builder.fields.setList([{ name: "entity1", value: 1, dataType: "TEXT" },
+                { name: "entity2", value: 2, dataType: "TEXT" },
+                { name: "entity3", value: 3, dataType: "TEXT" }]);
+                builder.operators.setList([{
+                    value: "<",
+                    name: "less than"
+                },
+
+                {
+                    value: ">",
+                    name: "greater than"
+                },
+                {
+                    value: "=",
+                    name: "Equal"
+                },
+                {
+                    value: "<",
+                    name: "less than"
+                },
+                {
+                    value: "±",
+                    name: "Plus-Minus"
+                }
+                ]) */
+
+                builder.main.init("container");
+
+            })
+
+
+
+        });
+    </script>
+</head>
+
+<body style="background-color:black;color:floralwhite">
+    <div id="container" ></div>
+    <div id="container2" class='content2'></div>
+    <!-- 
+    <h1>My Sample Project</h1>]
+    <div id="MainContent"></div>
+
+    <div id="builder-basic_group_0" class="rules-group-container">
+        <div class="rules-group-header">
+            <div class="btn-group pull-right group-actions"> <button type="button" class="btn btn-xs btn-success"
+                    data-add="rule"> <i class="glyphicon glyphicon-plus"></i> Add rule </button> <button type="button"
+                    class="btn btn-xs btn-success" data-add="group"> <i class="glyphicon glyphicon-plus-sign"></i> Add
+                    group </button> </div>
+            <div class="btn-group group-conditions"> <label class="btn btn-xs btn-primary active disabled"> <input
+                        type="radio" name="builder-basic_group_0_cond" value="AND" disabled=""> AND </label> <label
+                    class="btn btn-xs btn-primary disabled"> <input type="radio" name="builder-basic_group_0_cond"
+                        value="OR" disabled=""> OR </label> </div>
+            <div class="error-container" data-toggle="tooltip"><i class="glyphicon glyphicon-warning-sign"></i></div>
+        </div>
+        <div class="rules-group-body">
+            <div class="rules-list"></div>
+        </div>
+    </div> -->
+
+</body>
+
+</html>

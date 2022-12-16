@@ -1,0 +1,241 @@
+/*!
+ * jQuery QueryBuilder 2.5.2
+ * Copyright 2014-2018 Damien "Mistic" Sorel (http://www.strangeplanet.fr)
+ * Licensed under MIT (https://opensource.org/licenses/MIT)
+ */
+
+ .easy-query-maker .rule-container,
+ .easy-query-maker .rule-placeholder,
+ .easy-query-maker .rules-group-container {
+     position: relative;
+     margin: 4px 0;
+     border-radius: 5px;
+     padding: 5px;
+     border: 1px solid #eee;
+     background: rgba(255, 255, 255, .9)
+ }
+ 
+ .easy-query-maker .drag-handle,
+ .easy-query-maker .error-container,
+ .easy-query-maker .rule-container .rule-filter-container,
+ .easy-query-maker .rule-container .rule-operator-container,
+ .easy-query-maker .rule-container .rule-value-container {
+     display: inline-block;
+     margin: 0 5px 0 0;
+     vertical-align: middle
+ }
+ 
+ .easy-query-maker .rules-group-container {
+     padding: 10px;
+     padding-bottom: 6px;
+     border: 1px solid #dcc896;
+     background: rgba(250, 240, 210, .5)
+ }
+ 
+ .easy-query-maker .rules-group-header {
+     margin-bottom: 10px
+ }
+ 
+ .easy-query-maker .rules-group-header .group-conditions .btn.readonly:not(.active),
+ .easy-query-maker .rules-group-header .group-conditions input[name$='_cond'] {
+     border: 0;
+     clip: rect(0 0 0 0);
+     height: 1px;
+     margin: -1px;
+     overflow: hidden;
+     padding: 0;
+     position: absolute;
+     width: 1px;
+     white-space: nowrap
+ }
+ 
+ .easy-query-maker .rules-group-header .group-conditions .btn.readonly {
+     border-radius: 3px
+ }
+ 
+ .easy-query-maker .rules-list {
+     list-style: none;
+     padding: 0 0 0 15px;
+     margin: 0
+ }
+ 
+ .easy-query-maker .rule-value-container {
+     border-left: 1px solid #ddd;
+     padding-left: 5px
+ }
+ 
+ .easy-query-maker .rule-value-container label {
+     margin-bottom: 0;
+     font-weight: 400
+ }
+ 
+ .easy-query-maker .rule-value-container label.block {
+     display: block
+ }
+ 
+ .easy-query-maker .rule-value-container input[type=number],
+ .easy-query-maker .rule-value-container input[type=text],
+ .easy-query-maker .rule-value-container select {
+     padding: 1px
+ }
+ 
+ .easy-query-maker .error-container {
+     display: none;
+     cursor: help;
+     color: red
+ }
+ 
+ .easy-query-maker .has-error {
+     background-color: #fdd;
+     border-color: #f99
+ }
+ 
+ .easy-query-maker .has-error .error-container {
+     display: inline-block!important
+ }
+ 
+ .easy-query-maker .rules-list>::after,
+ .easy-query-maker .rules-list>::before {
+     content: '';
+     position: absolute;
+     left: -10px;
+     width: 10px;
+     height: calc(50% + 4px);
+     border-color: #ccc;
+     border-style: solid
+ }
+ 
+ .easy-query-maker .rules-list>::before {
+     top: -4px;
+     border-width: 0 0 2px 2px
+ }
+ 
+ .easy-query-maker .rules-list>::after {
+     top: 50%;
+     border-width: 0 0 0 2px
+ }
+ 
+ .easy-query-maker .rules-list>:first-child::before {
+     top: -12px;
+     height: calc(50% + 14px)
+ }
+ 
+ .easy-query-maker .rules-list>:last-child::before {
+     border-radius: 0 0 0 4px
+ }
+ 
+ .easy-query-maker .rules-list>:last-child::after {
+     display: none
+ }
+ 
+ .easy-query-maker.bt-checkbox-glyphicons .checkbox input[type=checkbox]:checked+label::after {
+     font-family: 'Glyphicons Halflings';
+     content: '\e013'
+ }
+ 
+ .easy-query-maker.bt-checkbox-glyphicons .checkbox label::after {
+     padding-left: 4px;
+     padding-top: 2px;
+     font-size: 9px
+ }
+ 
+ .easy-query-maker .error-container+.tooltip .tooltip-inner {
+     color: #f99!important
+ }
+ 
+ .easy-query-maker p.filter-description {
+     margin: 5px 0 0 0;
+     background: #d9edf7;
+     border: 1px solid #bce8f1;
+     color: #31708f;
+     border-radius: 5px;
+     padding: 2.5px 5px;
+     font-size: .8em
+ }
+ 
+ .easy-query-maker .rules-group-header [data-invert] {
+     margin-left: 5px
+ }
+ 
+ .easy-query-maker .drag-handle {
+     cursor: move;
+     vertical-align: middle;
+     margin-left: 5px
+ }
+ 
+ .easy-query-maker .dragging {
+     position: fixed;
+     opacity: .5;
+     z-index: 100
+ }
+ 
+ .easy-query-maker .dragging::after,
+ .easy-query-maker .dragging::before {
+     display: none
+ }
+ 
+ .easy-query-maker .rule-placeholder {
+     border: 1px dashed #bbb;
+     opacity: .7
+ }
+ 
+ .builder {
+     background-color: #bdc3c7;
+     padding: 10px;
+     width: 50%;
+     border: 1px #7f8c8d;
+ }
+ 
+ .group-container .group-body>::after,
+ .group-container .group-body>::before {
+     content: '';
+     position: absolute;
+     left: -10px;
+     width: 10px;
+     height: calc(50% + 4px);
+     border-color: #f99;
+     border-style: solid;
+ }
+ 
+ .easy-query-maker .record-item>:first-child::before {
+     top: -12px;
+     height: calc(50% + 14px);
+ }
+ 
+ 
+ 
+ .easy-query-maker .buttons-header,
+ .easy-query-maker .radios-header{
+     display: inline-block;
+     box-sizing: border-box;
+     width: 50%;
+ }
+ 
+ .easy-query-maker .buttons-header,
+ .easy-query-maker .radios-header{
+     display: inline-block;
+     box-sizing: border-box;
+     width: 50%;
+ }
+ .easy-query-maker .wrap-input{
+     display: inline-block;
+     width:20%;
+     margin-left:5px
+ }
+ .easy-query-maker .rules-list div{
+     margin-top:5px;
+ }
+ 
+ .easy-query-maker .rules-list div{
+     margin-top:5px;
+ }
+ 
+ 
+ .easy-query-maker .btn-success
+ {
+     background-color: #009688;
+ }
+ .easy-query-maker .btn-delete{
+    background-color: #dc2020;
+    color:#fff;
+ }
